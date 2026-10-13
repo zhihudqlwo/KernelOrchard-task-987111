@@ -6,77 +6,72 @@ This mirror contains the complete Pallas kernel-language implementation, includi
 
 ### 📝 Complete TODO List
 
-- [ ] **jax/_src/pallas/core.py:87** - # TODO(justinfu): Handle semaphores with a custom extended dtype.
-- [ ] **jax/_src/pallas/core.py:100** - # TODO(sharadmv): implement dtype rules for AbstractSemaphoreTy
-- [ ] **jax/_src/pallas/core.py:243** - # TODO(b/368122763): Unify memory space types across backends
-- [ ] **jax/_src/pallas/core.py:570** - # TODO(sharadmv): Add this once we have a better way to handle
-- [ ] **jax/_src/pallas/core.py:624** - # TODO(mattjj,sharadmv)
-- [ ] **jax/_src/pallas/core.py:753** - # TODO(apaszke,sharadmv): Replace mapped dims in block_shape with a transform.
-- [ ] **jax/_src/pallas/core.py:1246** - # TODO(b/353730556): allow NumPy scalars in grids
-- [ ] **jax/_src/pallas/core.py:1544** - # TODO(sharadmv,ivyzheng): remove this once we use axis dicts primarily
-- [ ] **jax/_src/pallas/core.py:1570** - # TODO(rdyro): Unify this among backends.
+- [ ] **jax/_src/pallas/core.py:86** - # TODO(justinfu): Handle semaphores with a custom extended dtype.
+- [ ] **jax/_src/pallas/core.py:101** - # TODO(sharadmv): implement dtype rules for AbstractSemaphoreTy
+- [ ] **jax/_src/pallas/core.py:249** - # TODO(b/368122763): Unify memory space types across backends
+- [ ] **jax/_src/pallas/core.py:588** - # TODO(sharadmv): Add this once we have a better way to handle
+- [ ] **jax/_src/pallas/core.py:642** - # TODO(mattjj,sharadmv)
+- [ ] **jax/_src/pallas/core.py:771** - # TODO(apaszke,sharadmv): Replace mapped dims in block_shape with a transform.
+- [ ] **jax/_src/pallas/core.py:1264** - # TODO(b/353730556): allow NumPy scalars in grids
+- [ ] **jax/_src/pallas/core.py:1562** - # TODO(sharadmv,ivyzheng): remove this once we use axis dicts primarily
+- [ ] **jax/_src/pallas/core.py:1588** - # TODO(rdyro): Unify this among backends.
 - [ ] **jax/_src/pallas/einshape.py:80** - # TODO(slebedev): fix circular imports in the following:
 - [ ] **jax/_src/pallas/einshape.py:115** - # TODO(sharadmv): unify this with other Pallas Transforms
 - [ ] **jax/_src/pallas/fuser/block_spec.py:17** - # TODO(sharadmv): Enable type checking.
-- [ ] **jax/_src/pallas/fuser/block_spec.py:224** - # TODO(sharadmv): maybe simplify this by only identifying scalar prefetch
-- [ ] **jax/_src/pallas/fuser/block_spec.py:717** - # TODO(sharadmv,justinfu): preserve source mapping
-- [ ] **jax/_src/pallas/fuser/block_spec.py:854** - # TODO(jburnim): Raise an error if an input fusion is modifying a Ref?
-- [ ] **jax/_src/pallas/fuser/block_spec.py:994** - # TODO(wdvi): This is a hack needed since lowering rules require block shape
-- [ ] **jax/_src/pallas/fuser/block_spec.py:1317** - # TODO(rdyro): Constant fold the static indices to skip scalar prefetch.
-- [ ] **jax/_src/pallas/fuser/block_spec.py:1446** - # TODO(rdyro): Dynamic update slice supports a tile-aligned overwrite only.
-- [ ] **jax/_src/pallas/fuser/custom_fusion_lib.py:104** - # TODO(jburnim): Better error messages here.
-- [ ] **jax/_src/pallas/fuser/custom_fusion_lib.py:181** - # TODO(jburnim): Error if pallas_jaxpr has different number of outputs, or
-- [ ] **jax/_src/pallas/fuser/custom_fusion_lib.py:212** - # TODO(jburnim): Lowering rules for SC and Mosaic GPU.
-- [ ] **jax/_src/pallas/fuser/custom_fusion_lib.py:253** - # TODO(jburnim): Better error message if push_block_spec_rule is None.
-- [ ] **jax/_src/pallas/fuser/custom_fusion_lib.py:266** - # TODO(jburnim): Error if jaxpr gives different usage than pallas_jaxpr?
-- [ ] **jax/_src/pallas/fuser/fusible_dtype.py:215** - # TODO: Use trace_to_jaxpr_nocache instead.
-- [ ] **jax/_src/pallas/fuser/fusible_dtype.py:235** - # TODO: Merge into JAX core.
-- [ ] **jax/_src/pallas/fuser/jaxpr_fusion.py:172** - # TODO(sharadmv): We use partial_eval to query downstream dependencies which
+- [ ] **jax/_src/pallas/fuser/block_spec.py:238** - # TODO(sharadmv): maybe simplify this by only identifying scalar prefetch
+- [ ] **jax/_src/pallas/fuser/block_spec.py:827** - # TODO(sharadmv,justinfu): preserve source mapping
+- [ ] **jax/_src/pallas/fuser/block_spec.py:967** - # TODO(jburnim): Raise an error if an input fusion is modifying a Ref?
+- [ ] **jax/_src/pallas/fuser/block_spec.py:1109** - # TODO(wdvi): This is a hack needed since lowering rules require block shape
+- [ ] **jax/_src/pallas/fuser/block_spec.py:1417** - # TODO(rdyro): Constant fold the static indices to skip scalar prefetch.
+- [ ] **jax/_src/pallas/fuser/block_spec.py:1542** - # TODO(rdyro): Dynamic update slice supports a tile-aligned overwrite only.
+- [ ] **jax/_src/pallas/fuser/custom_fusion_lib.py:263** - # TODO(jburnim): Error if jaxpr gives different usage than pallas_jaxpr?
+- [ ] **jax/_src/pallas/fuser/fusible_dtype.py:221** - # TODO: Use trace_to_jaxpr_nocache instead.
+- [ ] **jax/_src/pallas/fuser/fusible_dtype.py:246** - # TODO: Merge into JAX core.
+- [ ] **jax/_src/pallas/fuser/jaxpr_fusion.py:199** - # TODO(sharadmv): We use partial_eval to query downstream dependencies which
 - [ ] **jax/_src/pallas/hlo_interpreter.py:111** - # TODO(justinfu): Move this to a common utility file.
 - [ ] **jax/_src/pallas/hlo_interpreter.py:165** - # TODO(justinfu): Evaluate backend-specific primitives in a new pass.
 - [ ] **jax/_src/pallas/hlo_interpreter.py:301** - # TODO(justinfu): Replace this with a standardized physicalize pass.
 - [ ] **jax/_src/pallas/hlo_interpreter.py:357** - # TODO(b/370563936): Fix correctness issue w/ io aliasing
-- [ ] **jax/_src/pallas/mosaic/core.py:415** - # TODO: Add support for mpmd with SparseCore meshes.
+- [ ] **jax/_src/pallas/mosaic/core.py:452** - # TODO: Add support for mpmd with SparseCore meshes.
 - [ ] **jax/_src/pallas/mosaic/interpret/interpret_pallas_call.py:80** - # TODO(jburnim): Pass `shared_memory` to `func`, so it does not have to
 - [ ] **jax/_src/pallas/mosaic/interpret/interpret_pallas_call.py:146** - # TODO(jburnim): Do we want to support multiple instances of SharedMemory?
 - [ ] **jax/_src/pallas/mosaic/interpret/interpret_pallas_call.py:291** - # TODO(jburnim): Do something constant time instead of linear here.
 - [ ] **jax/_src/pallas/mosaic/interpret/interpret_pallas_call.py:317** - # TODO(jburnim): Make this raise an error, but in a way that doesn't
 - [ ] **jax/_src/pallas/mosaic/interpret/interpret_pallas_call.py:334** - # TODO(nrink): Replace this assertion with raising an exception early if
-- [ ] **jax/_src/pallas/mosaic/interpret/interpret_pallas_call.py:450** - # TODO(jburnim): Raise an error if buffer_id is too big for int16.
-- [ ] **jax/_src/pallas/mosaic/interpret/interpret_pallas_call.py:544** - # TODO(jburnim): Raise an error if any IDs are too big for int16.
-- [ ] **jax/_src/pallas/mosaic/interpret/interpret_pallas_call.py:650** - # TODO(jburnim): We already know this shape in the Jaxpr where we insert a
-- [ ] **jax/_src/pallas/mosaic/interpret/interpret_pallas_call.py:652** - # TODO(jburnim): Move to a helper function?
-- [ ] **jax/_src/pallas/mosaic/interpret/interpret_pallas_call.py:873** - # TODO(jburnim): Include indices of out-of-bounds locations where mask
-- [ ] **jax/_src/pallas/mosaic/interpret/interpret_pallas_call.py:1316** - # TODO(jburnim): Clean up and finish this evaluation loop.  For example:
-- [ ] **jax/_src/pallas/mosaic/interpret/interpret_pallas_call.py:1334** - # TODO(jburnim): Set up a proper kernel tracing environment for `impl`.
-- [ ] **jax/_src/pallas/mosaic/interpret/interpret_pallas_call.py:1386** - # TODO(jburnim): Implement this properly?
-- [ ] **jax/_src/pallas/mosaic/interpret/interpret_pallas_call.py:1390** - # TODO(jburnim): Implement this properly?
-- [ ] **jax/_src/pallas/mosaic/interpret/interpret_pallas_call.py:1394** - # TODO(jburnim): Implement this properly?
-- [ ] **jax/_src/pallas/mosaic/interpret/interpret_pallas_call.py:1516** - # TODO(jburnim): De-allocate semaphores.
-- [ ] **jax/_src/pallas/mosaic/interpret/interpret_pallas_call.py:1657** - # TODO(nrink): It would be more robust if the buffer id, i.e. `src`,
-- [ ] **jax/_src/pallas/mosaic/interpret/interpret_pallas_call.py:1666** - # TODO(nrink): See comment for `src_memory_space` above.
-- [ ] **jax/_src/pallas/mosaic/interpret/interpret_pallas_call.py:1710** - # TODO(rdyro): Support barrier semaphore tags in interpret mode.
-- [ ] **jax/_src/pallas/mosaic/interpret/interpret_pallas_call.py:1892** - # TODO(sharadmv, jburnim): add support for memory space constraints
-- [ ] **jax/_src/pallas/mosaic/interpret/interpret_pallas_call.py:1960** - # TODO(sharadmv): Add metadata to HLO.
-- [ ] **jax/_src/pallas/mosaic/interpret/interpret_pallas_call.py:2041** - # TODO(jburnim): As an optimization, skip allocating buffers for inputs that
-- [ ] **jax/_src/pallas/mosaic/interpret/interpret_pallas_call.py:2135** - # TODO(jburnim): For kernel args in HBM, check that block shape equals the
-- [ ] **jax/_src/pallas/mosaic/interpret/interpret_pallas_call.py:2220** - # TODO(jburnim): Are we overusing nested local functions here?
-- [ ] **jax/_src/pallas/mosaic/interpret/interpret_pallas_call.py:2324** - # TODO(jburnim): Just use input_args[j] when the input is not aliased?
-- [ ] **jax/_src/pallas/mosaic/interpret/interpret_pallas_call.py:2338** - # TODO(jburnim): Pass source_info from the pallas_call, in case this
-- [ ] **jax/_src/pallas/mosaic/interpret/interpret_pallas_call.py:2357** - # TODO(jburnim): Pass source_info from the pallas_call, in case this
-- [ ] **jax/_src/pallas/mosaic/interpret/interpret_pallas_call.py:2406** - # TODO(jburnim): Pass source_info from the pallas_call, in case this
-- [ ] **jax/_src/pallas/mosaic/interpret/interpret_pallas_call.py:2418** - # TODO(jburnim): Pass source_info from the pallas_call, in case this
-- [ ] **jax/_src/pallas/mosaic/interpret/interpret_pallas_call.py:2532** - # TODO(jburnim): Should we only create happens-before here from core 0 to
-- [ ] **jax/_src/pallas/mosaic/interpret/interpret_pallas_call.py:2548** - # TODO(jburnim): Should we only create happens-before here from the other
-- [ ] **jax/_src/pallas/mosaic/interpret/interpret_pallas_call.py:2560** - # TODO(jburnim): Pass source_info from the pallas_call, in case this
-- [ ] **jax/_src/pallas/mosaic/interpret/interpret_pallas_call.py:2583** - # TODO(jburnim): Get rid of this barrier.  And figure out how this should
-- [ ] **jax/_src/pallas/mosaic/interpret/params.py:176** - # TODO(nrink): Add an attribute for specifying the TPU device kind.
-- [ ] **jax/_src/pallas/mosaic/interpret/race_detection_state.py:45** - # TODO(jburnim): Handle non-zero steps.
-- [ ] **jax/_src/pallas/mosaic/interpret/race_detection_state.py:72** - # TODO(nrink): Remove this field; it seems to be unused.
-- [ ] **jax/_src/pallas/mosaic/interpret/race_detection_state.py:120** - # TODO(jburnim): When printing device IDs for reads/writes, distinguish
-- [ ] **jax/_src/pallas/mosaic/interpret/race_detection_state.py:152** - # TODO(jburnim): For performance, we should also probably remove any
-- [ ] **jax/_src/pallas/mosaic/interpret/race_detection_state.py:166** - # TODO(jburnim): When printing device IDs for reads/writes, distinguish
-- [ ] **jax/_src/pallas/mosaic/interpret/race_detection_state.py:186** - # TODO(jburnim): When printing device IDs for reads/writes, distinguish
+- [ ] **jax/_src/pallas/mosaic/interpret/interpret_pallas_call.py:452** - # TODO(jburnim): Raise an error if buffer_id is too big for int16.
+- [ ] **jax/_src/pallas/mosaic/interpret/interpret_pallas_call.py:577** - # TODO(jburnim): Raise an error if any IDs are too big for int16.
+- [ ] **jax/_src/pallas/mosaic/interpret/interpret_pallas_call.py:683** - # TODO(jburnim): We already know this shape in the Jaxpr where we insert a
+- [ ] **jax/_src/pallas/mosaic/interpret/interpret_pallas_call.py:685** - # TODO(jburnim): Move to a helper function?
+- [ ] **jax/_src/pallas/mosaic/interpret/interpret_pallas_call.py:906** - # TODO(jburnim): Include indices of out-of-bounds locations where mask
+- [ ] **jax/_src/pallas/mosaic/interpret/interpret_pallas_call.py:1360** - # TODO(jburnim): Clean up and finish this evaluation loop.  For example:
+- [ ] **jax/_src/pallas/mosaic/interpret/interpret_pallas_call.py:1378** - # TODO(jburnim): Set up a proper kernel tracing environment for `impl`.
+- [ ] **jax/_src/pallas/mosaic/interpret/interpret_pallas_call.py:1430** - # TODO(jburnim): Implement this properly?
+- [ ] **jax/_src/pallas/mosaic/interpret/interpret_pallas_call.py:1434** - # TODO(jburnim): Implement this properly?
+- [ ] **jax/_src/pallas/mosaic/interpret/interpret_pallas_call.py:1443** - # TODO(jburnim): Implement this properly?
+- [ ] **jax/_src/pallas/mosaic/interpret/interpret_pallas_call.py:1563** - # TODO(jburnim): De-allocate semaphores.
+- [ ] **jax/_src/pallas/mosaic/interpret/interpret_pallas_call.py:1710** - # TODO(nrink): It would be more robust if the buffer id, i.e. `src`,
+- [ ] **jax/_src/pallas/mosaic/interpret/interpret_pallas_call.py:1719** - # TODO(nrink): See comment for `src_memory_space` above.
+- [ ] **jax/_src/pallas/mosaic/interpret/interpret_pallas_call.py:1764** - # TODO(rdyro): Support barrier semaphore tags in interpret mode.
+- [ ] **jax/_src/pallas/mosaic/interpret/interpret_pallas_call.py:1958** - # TODO(sharadmv, jburnim): add support for memory space constraints
+- [ ] **jax/_src/pallas/mosaic/interpret/interpret_pallas_call.py:2026** - # TODO(sharadmv): Add metadata to HLO.
+- [ ] **jax/_src/pallas/mosaic/interpret/interpret_pallas_call.py:2107** - # TODO(jburnim): As an optimization, skip allocating buffers for inputs that
+- [ ] **jax/_src/pallas/mosaic/interpret/interpret_pallas_call.py:2198** - # TODO(jburnim): For kernel args in HBM, check that block shape equals the
+- [ ] **jax/_src/pallas/mosaic/interpret/interpret_pallas_call.py:2282** - # TODO(jburnim): Are we overusing nested local functions here?
+- [ ] **jax/_src/pallas/mosaic/interpret/interpret_pallas_call.py:2386** - # TODO(jburnim): Just use input_args[j] when the input is not aliased?
+- [ ] **jax/_src/pallas/mosaic/interpret/interpret_pallas_call.py:2400** - # TODO(jburnim): Pass source_info from the pallas_call, in case this
+- [ ] **jax/_src/pallas/mosaic/interpret/interpret_pallas_call.py:2419** - # TODO(jburnim): Pass source_info from the pallas_call, in case this
+- [ ] **jax/_src/pallas/mosaic/interpret/interpret_pallas_call.py:2468** - # TODO(jburnim): Pass source_info from the pallas_call, in case this
+- [ ] **jax/_src/pallas/mosaic/interpret/interpret_pallas_call.py:2480** - # TODO(jburnim): Pass source_info from the pallas_call, in case this
+- [ ] **jax/_src/pallas/mosaic/interpret/interpret_pallas_call.py:2594** - # TODO(jburnim): Should we only create happens-before here from core 0 to
+- [ ] **jax/_src/pallas/mosaic/interpret/interpret_pallas_call.py:2610** - # TODO(jburnim): Should we only create happens-before here from the other
+- [ ] **jax/_src/pallas/mosaic/interpret/interpret_pallas_call.py:2622** - # TODO(jburnim): Pass source_info from the pallas_call, in case this
+- [ ] **jax/_src/pallas/mosaic/interpret/interpret_pallas_call.py:2645** - # TODO(jburnim): Get rid of this barrier.  And figure out how this should
+- [ ] **jax/_src/pallas/mosaic/interpret/params.py:181** - # TODO(nrink): Add an attribute for specifying the TPU device kind.
+- [ ] **jax/_src/pallas/mosaic/interpret/race_detection_state.py:49** - # TODO(jburnim): Handle non-zero steps.
+- [ ] **jax/_src/pallas/mosaic/interpret/race_detection_state.py:123** - # TODO(jburnim): When printing device IDs for reads/writes, distinguish
+- [ ] **jax/_src/pallas/mosaic/interpret/race_detection_state.py:157** - # TODO(jburnim): For performance, we should also probably remove any
+- [ ] **jax/_src/pallas/mosaic/interpret/race_detection_state.py:171** - # TODO(jburnim): When printing device IDs for reads/writes, distinguish
+- [ ] **jax/_src/pallas/mosaic/interpret/race_detection_state.py:193** - # TODO(jburnim): When printing device IDs for reads/writes, distinguish
 - [ ] **jax/_src/pallas/mosaic/interpret/shared_memory.py:49** - # TODO(jburnim): Use one Condition variable per device.  (Which will be
 - [ ] **jax/_src/pallas/mosaic/interpret/shared_memory.py:69** - # TODO(jburnim): Model happens-before more precisely for the case where
 - [ ] **jax/_src/pallas/mosaic/interpret/shared_memory.py:159** - # TODO(nrink): Update the comment below to generalize from DMAs and DMA
@@ -91,88 +86,105 @@ This mirror contains the complete Pallas kernel-language implementation, includi
 - [ ] **jax/_src/pallas/mosaic/interpret/thread_map.py:67** - # TODO(jburnim): Improve exception propagation here.  That is:
 - [ ] **jax/_src/pallas/mosaic/interpret/thread_map.py:83** - # TODO(jburnim): Would it be worth trying to lower/compile the jaxpr at
 - [ ] **jax/_src/pallas/mosaic/interpret/utils.py:155** - # TODO(sharadmv): De-dup this w/ the impl in primitives.py.
-- [ ] **jax/_src/pallas/mosaic/lowering.py:111** - # TODO(mvoz): Find a way to make this a contract we can share with the
-- [ ] **jax/_src/pallas/mosaic/lowering.py:128** - # TODO(slebedev): Make this a TypeIs function, once we migrate to Pyrefly.
-- [ ] **jax/_src/pallas/mosaic/lowering.py:234** - # TODO(b/355036977): generalize this across other platforms
-- [ ] **jax/_src/pallas/mosaic/lowering.py:507** - # TODO(phawkins): this is probably from KeyScalarBundle primarily. Handle
-- [ ] **jax/_src/pallas/mosaic/lowering.py:589** - # TODO(justinfu): Remove after mosaic supports unsigned types.
-- [ ] **jax/_src/pallas/mosaic/lowering.py:687** - # TODO(phawkins): currently we are excluding higher-order primitives because
-- [ ] **jax/_src/pallas/mosaic/lowering.py:773** - # TODO(mvoz): Generalize to not need this
-- [ ] **jax/_src/pallas/mosaic/lowering.py:885** - # TODO(sharadmv): implement this optimization
-- [ ] **jax/_src/pallas/mosaic/lowering.py:957** - # TODO(necula): add tests for SMEM blocks with trivial windowing
-- [ ] **jax/_src/pallas/mosaic/lowering.py:974** - # TODO(necula): add index_map source location info
-- [ ] **jax/_src/pallas/mosaic/lowering.py:1344** - # TODO(slebedev): Use a TypedDict here.
-- [ ] **jax/_src/pallas/mosaic/lowering.py:1523** - # TODO(sharadmv): Relax compiler checks to allow for no windowing.
-- [ ] **jax/_src/pallas/mosaic/lowering.py:1536** - # TODO(slebedev): Update the SparseCore compiler to allow this.
-- [ ] **jax/_src/pallas/mosaic/lowering.py:1776** - # TODO(justinfu): Handle transform scopes.
-- [ ] **jax/_src/pallas/mosaic/lowering.py:1817** - # TODO(phawkins): allow KeyScalarBundle/AccRef here as well as ir.Value.
-- [ ] **jax/_src/pallas/mosaic/lowering.py:2300** - # TODO(justinfu): Merge this with standard extended dtype handling.
-- [ ] **jax/_src/pallas/mosaic/lowering.py:2680** - # TODO(b/351017807): Implement this logic in Mosaic MultiDimReductionOp
-- [ ] **jax/_src/pallas/mosaic/lowering.py:2693** - # TODO(b/351017807): Implement this logic in Mosaic MultiDimReductionOp
-- [ ] **jax/_src/pallas/mosaic/lowering.py:3123** - # TODO(apaszke,mvoz): Move the upcasts for cmpi to the Mosaic canonicalizer.
-- [ ] **jax/_src/pallas/mosaic/lowering.py:3565** - # TODO(b/460843515): Support 1D inputs in Mosaic.
-- [ ] **jax/_src/pallas/mosaic/lowering.py:4382** - # TODO(apaszke): Remove forward_compatible check and associated code after 20.08.2026
-- [ ] **jax/_src/pallas/mosaic/lowering.py:4454** - # TODO(apaszke): Remove forward_compatible check after 12.08.2026
-- [ ] **jax/_src/pallas/mosaic/lowering.py:4691** - # TODO(b/300272065): Use `scf.IndexSwitchOp` instead of a cascade of
-- [ ] **jax/_src/pallas/mosaic/lowering.py:4800** - # TODO(rdyro): Unify the grid size in pipelined/unpipelined cases to always
-- [ ] **jax/_src/pallas/mosaic/lowering.py:5173** - # TODO(rdyro): Mosaic requires resolving the core axis when the
-- [ ] **jax/_src/pallas/mosaic/lowering.py:5177** - # TODO(rdyro): Consider removing this permissive cross-core
-- [ ] **jax/_src/pallas/mosaic/lowering.py:5244** - # TODO(rdyro): Unify the `core_index` argument to use core meshes instead.
-- [ ] **jax/_src/pallas/mosaic/lowering.py:5416** - # TODO(b/502722198): Use IndexSwitchOp instead of nested IfOp if it's fixed.
-- [ ] **jax/_src/pallas/mosaic/lowering.py:5508** - # TODO(slebedev): We can also support printing a single ref.
-- [ ] **jax/_src/pallas/mosaic/lowering.py:5607** - # TODO(b/342054464): Support implicit dims for PRNGRandomBitsOp.
+- [ ] **jax/_src/pallas/mosaic/lowering.py:114** - # TODO(mvoz): Find a way to make this a contract we can share with the
+- [ ] **jax/_src/pallas/mosaic/lowering.py:131** - # TODO(slebedev): Make this a TypeIs function, once we migrate to Pyrefly.
+- [ ] **jax/_src/pallas/mosaic/lowering.py:238** - # TODO(b/355036977): generalize this across other platforms
+- [ ] **jax/_src/pallas/mosaic/lowering.py:503** - # TODO(phawkins): this is probably from KeyScalarBundle primarily. Handle
+- [ ] **jax/_src/pallas/mosaic/lowering.py:585** - # TODO(justinfu): Remove after mosaic supports unsigned types.
+- [ ] **jax/_src/pallas/mosaic/lowering.py:683** - # TODO(phawkins): currently we are excluding higher-order primitives because
+- [ ] **jax/_src/pallas/mosaic/lowering.py:769** - # TODO(mvoz): Generalize to not need this
+- [ ] **jax/_src/pallas/mosaic/lowering.py:881** - # TODO(sharadmv): implement this optimization
+- [ ] **jax/_src/pallas/mosaic/lowering.py:953** - # TODO(necula): add tests for SMEM blocks with trivial windowing
+- [ ] **jax/_src/pallas/mosaic/lowering.py:970** - # TODO(necula): add index_map source location info
+- [ ] **jax/_src/pallas/mosaic/lowering.py:1346** - # TODO(slebedev): Use a TypedDict here.
+- [ ] **jax/_src/pallas/mosaic/lowering.py:1526** - # TODO(sharadmv): Relax compiler checks to allow for no windowing.
+- [ ] **jax/_src/pallas/mosaic/lowering.py:1539** - # TODO(slebedev): Update the SparseCore compiler to allow this.
+- [ ] **jax/_src/pallas/mosaic/lowering.py:1788** - # TODO(justinfu): Handle transform scopes.
+- [ ] **jax/_src/pallas/mosaic/lowering.py:1829** - # TODO(phawkins): allow KeyScalarBundle/AccRef here as well as ir.Value.
+- [ ] **jax/_src/pallas/mosaic/lowering.py:2422** - # TODO(justinfu): Merge this with standard extended dtype handling.
+- [ ] **jax/_src/pallas/mosaic/lowering.py:2810** - # TODO(b/351017807): Implement this logic in Mosaic MultiDimReductionOp
+- [ ] **jax/_src/pallas/mosaic/lowering.py:2823** - # TODO(b/351017807): Implement this logic in Mosaic MultiDimReductionOp
+- [ ] **jax/_src/pallas/mosaic/lowering.py:3253** - # TODO(apaszke,mvoz): Move the upcasts for cmpi to the Mosaic canonicalizer.
+- [ ] **jax/_src/pallas/mosaic/lowering.py:3695** - # TODO(b/460843515): Support 1D inputs in Mosaic.
+- [ ] **jax/_src/pallas/mosaic/lowering.py:4537** - # TODO(apaszke): Remove forward_compatible check and associated code after 20.08.2026
+- [ ] **jax/_src/pallas/mosaic/lowering.py:4616** - # TODO(apaszke): Remove forward_compatible check after 12.08.2026
+- [ ] **jax/_src/pallas/mosaic/lowering.py:4856** - # TODO(b/300272065): Use `scf.IndexSwitchOp` instead of a cascade of
+- [ ] **jax/_src/pallas/mosaic/lowering.py:4881** - # TODO(jburnim): Lowering rules for SC and Mosaic GPU.
+- [ ] **jax/_src/pallas/mosaic/lowering.py:4989** - # TODO(rdyro): Unify the grid size in pipelined/unpipelined cases to always
+- [ ] **jax/_src/pallas/mosaic/lowering.py:5396** - # TODO(rdyro): Mosaic requires resolving the core axis when the
+- [ ] **jax/_src/pallas/mosaic/lowering.py:5400** - # TODO(rdyro): Consider removing this permissive cross-core
+- [ ] **jax/_src/pallas/mosaic/lowering.py:5477** - # TODO(rdyro): Unify the `core_index` argument to use core meshes instead.
+- [ ] **jax/_src/pallas/mosaic/lowering.py:5743** - # TODO(b/502722198): Use IndexSwitchOp instead of nested IfOp if it's fixed.
+- [ ] **jax/_src/pallas/mosaic/lowering.py:5842** - # TODO(slebedev): We can also support printing a single ref.
+- [ ] **jax/_src/pallas/mosaic/lowering.py:5941** - # TODO(b/342054464): Support implicit dims for PRNGRandomBitsOp.
 - [ ] **jax/_src/pallas/mosaic/pallas_call_registration.py:259** - # TODO(mattjj,sharadmv)
 - [ ] **jax/_src/pallas/mosaic/pallas_call_registration.py:585** - # TODO(necula): use trace_to_jaxpr_nocache instead
 - [ ] **jax/_src/pallas/mosaic/pallas_call_registration.py:638** - # TODO(slebedev): Check kernel type and raise if it is set.
-- [ ] **jax/_src/pallas/mosaic/pipeline.py:592** - # TODO(sharadmv): Don't hard-code TC here, infer from context.
-- [ ] **jax/_src/pallas/mosaic/pipeline.py:1195** - # TODO(justinfu): Don't recompute these on each iteration.
-- [ ] **jax/_src/pallas/mosaic/pipeline.py:1473** - # TODO(levskaya): generalize argument tree handling here and in emit_pipeline.
-- [ ] **jax/_src/pallas/mosaic/pipeline.py:1571** - # TODO(sharadmv): enable running kernel on just one core
-- [ ] **jax/_src/pallas/mosaic/pipeline.py:1623** - # TODO(sharadmv): take the product of many nondivisible dimensions to
-- [ ] **jax/_src/pallas/mosaic/pipeline.py:2089** - # TODO(rdyro): Move this method to pallas_core or vendor it here.
-- [ ] **jax/_src/pallas/mosaic/pipeline.py:2236** - # TODO(rdyro): Either generalize or merge with another primitive. This primitive
-- [ ] **jax/_src/pallas/mosaic/pipeline.py:2293** - # TODO(rdyro): Both primtives require both memory pipeline and core grid
-- [ ] **jax/_src/pallas/mosaic/pipeline.py:2336** - # TODO(rdyro): This function is a near duplicate of _jaxpr_call_lowering_rule
-- [ ] **jax/_src/pallas/mosaic/pipeline.py:2357** - # TODO(rdyro): As a temporary workaround, to support both core mesh axes
-- [ ] **jax/_src/pallas/mosaic/pipeline.py:2595** - # TODO(rdyro): We append the core grid dimensions to the end of the memory
-- [ ] **jax/_src/pallas/mosaic/primitives.py:244** - # TODO(rdyro): Update the lowering to use `is_wait_send` instead of
-- [ ] **jax/_src/pallas/mosaic/primitives.py:283** - # TODO(rdyro): We swap read vs write effects when dma_wait is bound via
-- [ ] **jax/_src/pallas/mosaic/primitives.py:388** - # TODO(sharadmv): pretty print source semaphores and device id
-- [ ] **jax/_src/pallas/mosaic/primitives.py:450** - # TODO(justinfu): Verify that code only works in SPMD mode.
-- [ ] **jax/_src/pallas/mosaic/primitives.py:489** - # TODO(justinfu): Add a checkify for verifying there is at most one source.
-- [ ] **jax/_src/pallas/mosaic/primitives.py:490** - # TODO(justinfu): Handle the case where no other device is copying to
-- [ ] **jax/_src/pallas/mosaic/primitives.py:516** - # TODO(justinfu): Potentially handle asymmetric copy sizes.
-- [ ] **jax/_src/pallas/mosaic/primitives.py:654** - # TODO(b/370563115): perform ref update in dma_wait discharge rule instead of dma_start
-- [ ] **jax/_src/pallas/mosaic/sc_lowering.py:235** - # TODO(slebedev): We can use memref.atomic_rmw here, but the SC compiler
-- [ ] **jax/_src/pallas/mosaic/sc_lowering.py:438** - # TODO(slebedev): Use the TC rule once we align the ``LoweringRuleContext``
-- [ ] **jax/_src/pallas/mosaic/sc_lowering.py:465** - # TODO: Support regular DMA with add=True.
-- [ ] **jax/_src/pallas/mosaic/sc_lowering.py:529** - # TODO(slebedev): Use the TC rule once we align the ``LoweringRuleContext``
-- [ ] **jax/_src/pallas/mosaic/sc_primitives.py:1057** - # TODO(slebedev): Support more types.
-- [ ] **jax/_src/pallas/mosaic/sc_primitives.py:1155** - # TODO(slebedev): Support more types.
+- [ ] **jax/_src/pallas/mosaic/pipeline.py:656** - # TODO(sharadmv): Don't hard-code TC here, infer from context.
+- [ ] **jax/_src/pallas/mosaic/pipeline.py:1270** - # TODO(justinfu): Don't recompute these on each iteration.
+- [ ] **jax/_src/pallas/mosaic/pipeline.py:1486** - # TODO(rdyro): lag by output blocks, not grid steps (like input lookahead).
+- [ ] **jax/_src/pallas/mosaic/pipeline.py:1582** - # TODO(levskaya): generalize argument tree handling here and in emit_pipeline.
+- [ ] **jax/_src/pallas/mosaic/pipeline.py:1689** - # TODO(sharadmv): enable running kernel on just one core
+- [ ] **jax/_src/pallas/mosaic/pipeline.py:1742** - # TODO(sharadmv): take the product of many nondivisible dimensions to
+- [ ] **jax/_src/pallas/mosaic/pipeline.py:2241** - # TODO(rdyro): Move this method to pallas_core or vendor it here.
+- [ ] **jax/_src/pallas/mosaic/pipeline.py:2389** - # TODO(rdyro): Either generalize or merge with another primitive. This primitive
+- [ ] **jax/_src/pallas/mosaic/pipeline.py:2446** - # TODO(rdyro): Both primitives require both memory pipeline and core grid
+- [ ] **jax/_src/pallas/mosaic/pipeline.py:2480** - # TODO(rdyro): This function is a near duplicate of _jaxpr_call_lowering_rule
+- [ ] **jax/_src/pallas/mosaic/pipeline.py:2501** - # TODO(rdyro): As a temporary workaround, to support both core mesh axes
+- [ ] **jax/_src/pallas/mosaic/pipeline.py:2732** - # TODO(rdyro): We append the core grid dimensions to the end of the memory
+- [ ] **jax/_src/pallas/mosaic/prefetch.py:109** - # TODO(rdyro): Support TransformedRefs.
+- [ ] **jax/_src/pallas/mosaic/primitives.py:286** - # TODO(rdyro): Consider disallowing calling `.wait()` on remote copies and
+- [ ] **jax/_src/pallas/mosaic/primitives.py:309** - # TODO(rdyro): Update the lowering to use `is_wait_send` instead of
+- [ ] **jax/_src/pallas/mosaic/primitives.py:369** - # TODO(rdyro): We swap read vs write effects when dma_wait is bound via
+- [ ] **jax/_src/pallas/mosaic/primitives.py:478** - # TODO(sharadmv): pretty print source semaphores and device id
+- [ ] **jax/_src/pallas/mosaic/primitives.py:533** - # TODO(justinfu): Verify that code only works in SPMD mode.
+- [ ] **jax/_src/pallas/mosaic/primitives.py:560** - # TODO(justinfu): Add a checkify for verifying there is at most one source.
+- [ ] **jax/_src/pallas/mosaic/primitives.py:561** - # TODO(justinfu): Handle the case where no other device is copying to
+- [ ] **jax/_src/pallas/mosaic/primitives.py:587** - # TODO(justinfu): Potentially handle asymmetric copy sizes.
+- [ ] **jax/_src/pallas/mosaic/primitives.py:732** - # TODO(b/370563115): perform ref update in dma_wait discharge rule instead of dma_start
+- [ ] **jax/_src/pallas/mosaic/sc_lowering.py:87** - # TODO(naumsmogers): once we support non-expand masked loads, differentiate
+- [ ] **jax/_src/pallas/mosaic/sc_lowering.py:92** - # TODO: b/481866110 - Remove tpu.vector_load in favor of
+- [ ] **jax/_src/pallas/mosaic/sc_lowering.py:115** - # TODO(naumsmogers): once we support non-expand masked loads, differentiate
+- [ ] **jax/_src/pallas/mosaic/sc_lowering.py:151** - # TODO(naumsmogers): Support non-expand masked loads.
+- [ ] **jax/_src/pallas/mosaic/sc_lowering.py:271** - # TODO(naumsmogers): Support non-compress masked stores.
+- [ ] **jax/_src/pallas/mosaic/sc_lowering.py:337** - # TODO(slebedev): We can use memref.atomic_rmw here, but the SC compiler
+- [ ] **jax/_src/pallas/mosaic/sc_lowering.py:352** - # TODO(naumsmogers): once we support non-compress masked stores,
+- [ ] **jax/_src/pallas/mosaic/sc_lowering.py:358** - # TODO: b/481866110 - Remove tpu.vector_store in favor of
+- [ ] **jax/_src/pallas/mosaic/sc_lowering.py:395** - # TODO(naumsmogers): once we support non-compress masked stores,
+- [ ] **jax/_src/pallas/mosaic/sc_lowering.py:637** - # TODO(slebedev): Use the TC rule once we align the ``LoweringRuleContext``
+- [ ] **jax/_src/pallas/mosaic/sc_lowering.py:664** - # TODO: Support regular DMA with add=True.
+- [ ] **jax/_src/pallas/mosaic/sc_lowering.py:757** - # TODO(slebedev): Use the TC rule once we align the ``LoweringRuleContext``
+- [ ] **jax/_src/pallas/mosaic/sc_lowering.py:774** - # TODO(rdyro): Stop swapping in wait_send.
+- [ ] **jax/_src/pallas/mosaic/sc_lowering.py:814** - # TODO(rdyro): Always pass it once that is relaxed.
+- [ ] **jax/_src/pallas/mosaic/sc_lowering.py:846** - # TODO(rdyro): Scatters lack a write fence; `wait()` only awaits the read.
+- [ ] **jax/_src/pallas/mosaic/sc_primitives.py:487** - # TODO(b/562994815): Delete once all callers use pltpu.bitcast(dim=-1).
+- [ ] **jax/_src/pallas/mosaic/sc_primitives.py:623** - # TODO(tlongeri): Have Mosaic handle this.
+- [ ] **jax/_src/pallas/mosaic/sc_primitives.py:1088** - # TODO(slebedev): Support more types.
+- [ ] **jax/_src/pallas/mosaic/sc_primitives.py:1195** - # TODO(slebedev): Support more types.
 - [ ] **jax/_src/pallas/mosaic/tpu_info.py:15** - # TODO(yashkatariya): Remove this forwarding shim.
-- [ ] **jax/_src/pallas/mosaic_gpu/core.py:183** - # TODO(sharadmv): Add HiType constructor support.
-- [ ] **jax/_src/pallas/mosaic_gpu/core.py:374** - # TODO(slebedev): Use mesh-specific batching rules in ``mpmd_map`` instead.
-- [ ] **jax/_src/pallas/mosaic_gpu/core.py:395** - # TODO(slebedev): This is only here for backward compatibility. Remove.
-- [ ] **jax/_src/pallas/mosaic_gpu/core.py:985** - # TODO(sharadmv): upstream into pallas core
-- [ ] **jax/_src/pallas/mosaic_gpu/core.py:1791** - # TODO(bchetioui): unify layout_cast_p with relayout_p
-- [ ] **jax/_src/pallas/mosaic_gpu/core.py:1870** - # TODO(b/435159109): Remove this once LLVM regression is addressed.
-- [ ] **jax/_src/pallas/mosaic_gpu/core.py:1953** - # TODO(apaszke): Remove the layout suffix.
-- [ ] **jax/_src/pallas/mosaic_gpu/interpret/gpu_callbacks.py:190** - # TODO(nrink): Support different DMA execution modes on GPU.
-- [ ] **jax/_src/pallas/mosaic_gpu/interpret/gpu_callbacks.py:262** - # TODO(paulbib): Support warp specialization
-- [ ] **jax/_src/pallas/mosaic_gpu/interpret/gpu_callbacks.py:759** - # TODO(jburnim): Include indices of out-of-bounds locations where mask
-- [ ] **jax/_src/pallas/mosaic_gpu/interpret/gpu_callbacks.py:768** - # TODO(paulbib): Only the write half of the swap is registered with race
-- [ ] **jax/_src/pallas/mosaic_gpu/interpret/gpu_callbacks.py:904** - # TODO(paulbib): Add race-check validation on deallocation, i.e.: make sure
-- [ ] **jax/_src/pallas/mosaic_gpu/interpret/gpu_callbacks.py:918** - # TODO(nrink): If we had a dedicated memory space for cluster barriers
-- [ ] **jax/_src/pallas/mosaic_gpu/interpret/gpu_callbacks.py:1355** - # TODO(paulbib):support more than just the default of `OOBFillMode.ZEROS`.
-- [ ] **jax/_src/pallas/mosaic_gpu/interpret/gpu_callbacks.py:1386** - # TODO(paulbib): GMEM updates are only visible to the async proxy (TMA)
-- [ ] **jax/_src/pallas/mosaic_gpu/interpret/gpu_callbacks.py:1498** - # TODO(jburnim): Instead of just filtering out these transforms, should we
-- [ ] **jax/_src/pallas/mosaic_gpu/interpret/gpu_callbacks.py:1519** - # TODO(jburnim): Vector clocks.
-- [ ] **jax/_src/pallas/mosaic_gpu/interpret/gpu_callbacks.py:1520** - # TODO(jburnim): Async wgmma.
-- [ ] **jax/_src/pallas/mosaic_gpu/interpret/gpu_callbacks.py:1578** - # TODO(jburnim): wait_n for async wgmma.
-- [ ] **jax/_src/pallas/mosaic_gpu/interpret/gpu_callbacks.py:1610** - # TODO(jburnim,paulbib): Implement commit_group.
-- [ ] **jax/_src/pallas/mosaic_gpu/interpret/gpu_callbacks.py:1760** - # TODO(paulbib): Support scales and sparse metadata.
-- [ ] **jax/_src/pallas/mosaic_gpu/interpret/gpu_callbacks.py:1844** - # TODO(paulbib): for race-checking, we don't technically need to check
-- [ ] **jax/_src/pallas/mosaic_gpu/interpret/gpu_callbacks.py:2089** - # TODO(paulbib): Support collective_axis.
+- [ ] **jax/_src/pallas/mosaic_gpu/core.py:190** - # TODO(sharadmv): Add HiType constructor support.
+- [ ] **jax/_src/pallas/mosaic_gpu/core.py:400** - # TODO(slebedev): Use mesh-specific batching rules in ``mpmd_map`` instead.
+- [ ] **jax/_src/pallas/mosaic_gpu/core.py:432** - # TODO(slebedev): This is only here for backward compatibility. Remove.
+- [ ] **jax/_src/pallas/mosaic_gpu/core.py:1043** - # TODO(sharadmv): upstream into pallas core
+- [ ] **jax/_src/pallas/mosaic_gpu/core.py:1859** - # TODO(bchetioui): unify layout_cast_p with relayout_p
+- [ ] **jax/_src/pallas/mosaic_gpu/core.py:1938** - # TODO(b/435159109): Remove this once LLVM regression is addressed.
+- [ ] **jax/_src/pallas/mosaic_gpu/core.py:2021** - # TODO(apaszke): Remove the layout suffix.
+- [ ] **jax/_src/pallas/mosaic_gpu/interpret/gpu_callbacks.py:184** - # TODO(nrink): Support different DMA execution modes on GPU.
+- [ ] **jax/_src/pallas/mosaic_gpu/interpret/gpu_callbacks.py:256** - # TODO(paulbib): Support warp specialization
+- [ ] **jax/_src/pallas/mosaic_gpu/interpret/gpu_callbacks.py:753** - # TODO(jburnim): Include indices of out-of-bounds locations where mask
+- [ ] **jax/_src/pallas/mosaic_gpu/interpret/gpu_callbacks.py:762** - # TODO(paulbib): Only the write half of the swap is registered with race
+- [ ] **jax/_src/pallas/mosaic_gpu/interpret/gpu_callbacks.py:899** - # TODO(paulbib): Add race-check validation on deallocation, i.e.: make sure
+- [ ] **jax/_src/pallas/mosaic_gpu/interpret/gpu_callbacks.py:913** - # TODO(nrink): If we had a dedicated memory space for cluster barriers
+- [ ] **jax/_src/pallas/mosaic_gpu/interpret/gpu_callbacks.py:1352** - # TODO(paulbib):support more than just the default of `OOBFillMode.ZEROS`.
+- [ ] **jax/_src/pallas/mosaic_gpu/interpret/gpu_callbacks.py:1383** - # TODO(paulbib): GMEM updates are only visible to the async proxy (TMA)
+- [ ] **jax/_src/pallas/mosaic_gpu/interpret/gpu_callbacks.py:1495** - # TODO(jburnim): Instead of just filtering out these transforms, should we
+- [ ] **jax/_src/pallas/mosaic_gpu/interpret/gpu_callbacks.py:1516** - # TODO(jburnim): Vector clocks.
+- [ ] **jax/_src/pallas/mosaic_gpu/interpret/gpu_callbacks.py:1517** - # TODO(jburnim): Async wgmma.
+- [ ] **jax/_src/pallas/mosaic_gpu/interpret/gpu_callbacks.py:1575** - # TODO(jburnim): wait_n for async wgmma.
+- [ ] **jax/_src/pallas/mosaic_gpu/interpret/gpu_callbacks.py:1607** - # TODO(jburnim,paulbib): Implement commit_group.
+- [ ] **jax/_src/pallas/mosaic_gpu/interpret/gpu_callbacks.py:1757** - # TODO(paulbib): Support scales and sparse metadata.
+- [ ] **jax/_src/pallas/mosaic_gpu/interpret/gpu_callbacks.py:1841** - # TODO(paulbib): for race-checking, we don't technically need to check
+- [ ] **jax/_src/pallas/mosaic_gpu/interpret/gpu_callbacks.py:2086** - # TODO(paulbib): Support collective_axis.
 - [ ] **jax/_src/pallas/mosaic_gpu/interpret/interpret_pallas_call.py:92** - # TODO(nrink): This code is a simplified version to the corresponding TPU
 - [ ] **jax/_src/pallas/mosaic_gpu/interpret/interpret_pallas_call.py:137** - # TODO(nrink): This code is a simplified version to the corresponding TPU
 - [ ] **jax/_src/pallas/mosaic_gpu/interpret/interpret_pallas_call.py:203** - # TODO(nrink): This code is a simplified version to the corresponding TPU
@@ -187,38 +199,38 @@ This mirror contains the complete Pallas kernel-language implementation, includi
 - [ ] **jax/_src/pallas/mosaic_gpu/interpret/interpret_pallas_call.py:569** - # TODO(nrink): Determine if any synchronization between the vector clocks is
 - [ ] **jax/_src/pallas/mosaic_gpu/interpret/interpret_pallas_call.py:578** - # TODO(nrink): For now we execute the grid by sequentially looping over the
 - [ ] **jax/_src/pallas/mosaic_gpu/interpret/jaxpr_interpret.py:79** - # TODO(nrink): Support more memory spaces.
-- [ ] **jax/_src/pallas/mosaic_gpu/interpret/jaxpr_interpret.py:505** - # TODO(nrink): Simplify the interface to
-- [ ] **jax/_src/pallas/mosaic_gpu/interpret/jaxpr_interpret.py:594** - # TODO(nrink): For sempahores, check that they have value zero at
-- [ ] **jax/_src/pallas/mosaic_gpu/interpret/jaxpr_interpret.py:896** - # TODO(paubib): this is the worst case for inline mgpu support: we don't
-- [ ] **jax/_src/pallas/mosaic_gpu/interpret/jaxpr_interpret.py:1293** - # TODO(paulbib): we're missing the ability to catch races by not letting
-- [ ] **jax/_src/pallas/mosaic_gpu/interpret/jaxpr_interpret.py:1420** - # TODO(jburnim): commit_group_p
-- [ ] **jax/_src/pallas/mosaic_gpu/interpret/jaxpr_interpret.py:1422** - # TODO(jburnim): wgmma_wait_p
-- [ ] **jax/_src/pallas/mosaic_gpu/interpret/jaxpr_interpret.py:1450** - # TODO(jburnim): Handle run_state_p above.  In particular, the Mosaic
+- [ ] **jax/_src/pallas/mosaic_gpu/interpret/jaxpr_interpret.py:512** - # TODO(nrink): Simplify the interface to
+- [ ] **jax/_src/pallas/mosaic_gpu/interpret/jaxpr_interpret.py:601** - # TODO(nrink): For sempahores, check that they have value zero at
+- [ ] **jax/_src/pallas/mosaic_gpu/interpret/jaxpr_interpret.py:920** - # TODO(paubib): this is the worst case for inline mgpu support: we don't
+- [ ] **jax/_src/pallas/mosaic_gpu/interpret/jaxpr_interpret.py:1334** - # TODO(paulbib): we're missing the ability to catch races by not letting
+- [ ] **jax/_src/pallas/mosaic_gpu/interpret/jaxpr_interpret.py:1469** - # TODO(jburnim): commit_group_p
+- [ ] **jax/_src/pallas/mosaic_gpu/interpret/jaxpr_interpret.py:1471** - # TODO(jburnim): wgmma_wait_p
+- [ ] **jax/_src/pallas/mosaic_gpu/interpret/jaxpr_interpret.py:1499** - # TODO(jburnim): Handle run_state_p above.  In particular, the Mosaic
 - [ ] **jax/_src/pallas/mosaic_gpu/interpret/params.py:91** - # TODO(jburnim): Rename to config.pallas_interpret_mode_context_manager.
-- [ ] **jax/_src/pallas/mosaic_gpu/interpret/shared_memory.py:447** - # TODO(paulbib): Is there a way to assert these match the base class?
-- [ ] **jax/_src/pallas/mosaic_gpu/interpret/shared_memory.py:672** - # TODO(nrink): Consider adding an option for selecting TMA thread IDs
-- [ ] **jax/_src/pallas/mosaic_gpu/interpret/shared_memory.py:816** - # TODO(nrink): Consider unifying this method with `allocate_barrier`.
-- [ ] **jax/_src/pallas/mosaic_gpu/interpret/shared_memory.py:851** - # TODO(nrink): Consider unifying this method with `deallocate_barrier`.
-- [ ] **jax/_src/pallas/mosaic_gpu/interpret/shared_memory.py:922** - # TODO(paulbib): since we never get rid of old tasks, this list grows
-- [ ] **jax/_src/pallas/mosaic_gpu/interpret/shared_memory.py:1048** - # TODO(paulbib): add check that tmem loads and stores have completed.
-- [ ] **jax/_src/pallas/mosaic_gpu/lowering.py:106** - # TODO(slebedev): The type argument should also be comparable.
-- [ ] **jax/_src/pallas/mosaic_gpu/lowering.py:191** - # TODO(slebedev): Optimize this.
-- [ ] **jax/_src/pallas/mosaic_gpu/lowering.py:259** - # TODO(slebedev): Add support for other primitives, notably control flow.
-- [ ] **jax/_src/pallas/mosaic_gpu/lowering.py:522** - # TODO: In debug mode verify the values of all semaphores are again 0
-- [ ] **jax/_src/pallas/mosaic_gpu/lowering.py:685** - # TODO(necula): add index_map source location info
-- [ ] **jax/_src/pallas/mosaic_gpu/lowering.py:822** - # TODO(justinfu): Compute scope_idx for general collective_axes.
-- [ ] **jax/_src/pallas/mosaic_gpu/lowering.py:942** - # TODO(justinfu): Compute axis_size for general collective_axes.
-- [ ] **jax/_src/pallas/mosaic_gpu/lowering.py:1056** - # TODO(apaszke): Handle other avals (refs, etc.).
-- [ ] **jax/_src/pallas/mosaic_gpu/lowering.py:1058** - # TODO(apaszke): Clarify the type invariants for lane semantics?
-- [ ] **jax/_src/pallas/mosaic_gpu/lowering.py:1089** - # TODO(justinfu): Handle transform scopes.
-- [ ] **jax/_src/pallas/mosaic_gpu/lowering.py:1428** - # TODO(bchetioui): Use a scheme resilient to hash collisions.
-- [ ] **jax/_src/pallas/mosaic_gpu/lowering.py:1471** - # TODO(bchetioui): Use a scheme resilient to hash collisions.
-- [ ] **jax/_src/pallas/mosaic_gpu/lowering.py:2294** - # TODO(bchetioui): support implicit broadcast.
-- [ ] **jax/_src/pallas/mosaic_gpu/lowering.py:2442** - # TODO(bchetioui): support conversions between float types of width 8.
-- [ ] **jax/_src/pallas/mosaic_gpu/lowering.py:3125** - # TODO(bchetioui): here, we could just donate all the remaining free SMEM that
-- [ ] **jax/_src/pallas/mosaic_gpu/lowering.py:3570** - # TODO(apaszke): This should be unified with run_scoped.
-- [ ] **jax/_src/pallas/mosaic_gpu/lowering.py:3697** - # TODO(slebedev): Emit an epilogue taking care of the remaining steps.
-- [ ] **jax/_src/pallas/mosaic_gpu/lowering.py:4326** - # TODO(cperivol): We assume all indices are signed. We should
+- [ ] **jax/_src/pallas/mosaic_gpu/interpret/shared_memory.py:456** - # TODO(paulbib): Is there a way to assert these match the base class?
+- [ ] **jax/_src/pallas/mosaic_gpu/interpret/shared_memory.py:684** - # TODO(nrink): Consider adding an option for selecting TMA thread IDs
+- [ ] **jax/_src/pallas/mosaic_gpu/interpret/shared_memory.py:833** - # TODO(nrink): Consider unifying this method with `allocate_barrier`.
+- [ ] **jax/_src/pallas/mosaic_gpu/interpret/shared_memory.py:870** - # TODO(nrink): Consider unifying this method with `deallocate_barrier`.
+- [ ] **jax/_src/pallas/mosaic_gpu/interpret/shared_memory.py:948** - # TODO(paulbib): since we never get rid of old tasks, this list grows
+- [ ] **jax/_src/pallas/mosaic_gpu/interpret/shared_memory.py:1074** - # TODO(paulbib): add check that tmem loads and stores have completed.
+- [ ] **jax/_src/pallas/mosaic_gpu/lowering.py:89** - # TODO(slebedev): The type argument should also be comparable.
+- [ ] **jax/_src/pallas/mosaic_gpu/lowering.py:174** - # TODO(slebedev): Optimize this.
+- [ ] **jax/_src/pallas/mosaic_gpu/lowering.py:242** - # TODO(slebedev): Add support for other primitives, notably control flow.
+- [ ] **jax/_src/pallas/mosaic_gpu/lowering.py:521** - # TODO: In debug mode verify the values of all semaphores are again 0
+- [ ] **jax/_src/pallas/mosaic_gpu/lowering.py:684** - # TODO(necula): add index_map source location info
+- [ ] **jax/_src/pallas/mosaic_gpu/lowering.py:821** - # TODO(justinfu): Compute scope_idx for general collective_axes.
+- [ ] **jax/_src/pallas/mosaic_gpu/lowering.py:941** - # TODO(justinfu): Compute axis_size for general collective_axes.
+- [ ] **jax/_src/pallas/mosaic_gpu/lowering.py:1075** - # TODO(apaszke): Handle other avals (refs, etc.).
+- [ ] **jax/_src/pallas/mosaic_gpu/lowering.py:1077** - # TODO(apaszke): Clarify the type invariants for lane semantics?
+- [ ] **jax/_src/pallas/mosaic_gpu/lowering.py:1111** - # TODO(justinfu): Handle transform scopes.
+- [ ] **jax/_src/pallas/mosaic_gpu/lowering.py:1456** - # TODO(bchetioui): Use a scheme resilient to hash collisions.
+- [ ] **jax/_src/pallas/mosaic_gpu/lowering.py:1499** - # TODO(bchetioui): Use a scheme resilient to hash collisions.
+- [ ] **jax/_src/pallas/mosaic_gpu/lowering.py:2391** - # TODO(bchetioui): support implicit broadcast.
+- [ ] **jax/_src/pallas/mosaic_gpu/lowering.py:2539** - # TODO(bchetioui): support conversions between float types of width 8.
+- [ ] **jax/_src/pallas/mosaic_gpu/lowering.py:3271** - # TODO(bchetioui): here, we could just donate all the remaining free SMEM that
+- [ ] **jax/_src/pallas/mosaic_gpu/lowering.py:3751** - # TODO(apaszke): This should be unified with run_scoped.
+- [ ] **jax/_src/pallas/mosaic_gpu/lowering.py:3878** - # TODO(slebedev): Emit an epilogue taking care of the remaining steps.
+- [ ] **jax/_src/pallas/mosaic_gpu/lowering.py:4513** - # TODO(cperivol): We assume all indices are signed. We should
 - [ ] **jax/_src/pallas/mosaic_gpu/pipeline.py:244** - # TODO(slebedev): Find a better place for this.
 - [ ] **jax/_src/pallas/mosaic_gpu/pipeline.py:310** - # TODO(justinfu): Factor out common code between warp-specialized and
 - [ ] **jax/_src/pallas/mosaic_gpu/pipeline.py:384** - # TODO(slebedev): Change this to arrive only once.
@@ -230,26 +242,24 @@ This mirror contains the complete Pallas kernel-language implementation, includi
 - [ ] **jax/_src/pallas/mosaic_gpu/pipeline.py:1042** - # TODO(justinfu,apaszke): This should probably be done by the memory WG.
 - [ ] **jax/_src/pallas/mosaic_gpu/pipeline.py:1071** - # TODO(justinfu): Only store base pointer instead of all indices.
 - [ ] **jax/_src/pallas/mosaic_gpu/pipeline.py:1123** - # TODO(apaszke,justinfu): Use a single arrive_expect_tx for all transfers.
-- [ ] **jax/_src/pallas/mosaic_gpu/primitives.py:1048** - # TODO: apaszke - Relax this. We can just select the WG leader and have it
-- [ ] **jax/_src/pallas/mosaic_gpu/primitives.py:1067** - # TODO(justinfu): The arrival counts are wrong if called outside of a
-- [ ] **jax/_src/pallas/mosaic_gpu/primitives.py:1141** - # TODO: Remove when the minimum jaxlib version is 0.11.1
-- [ ] **jax/_src/pallas/mosaic_gpu/primitives.py:1167** - # TODO: Remove when the minimum jaxlib version is 0.11.1
-- [ ] **jax/_src/pallas/mosaic_gpu/primitives.py:1183** - # TODO(bchetioui): Remove once 0.11.1 is the minimum jaxlib version.
-- [ ] **jax/_src/pallas/mosaic_gpu/primitives.py:2640** - # TODO(justinfu): If under a core_map, the avals for acc/a
-- [ ] **jax/_src/pallas/mosaic_gpu/primitives.py:3345** - # TODO(bchetioui): add primitive for commit smem to mosaic_gpu dialect.
-- [ ] **jax/_src/pallas/mosaic_gpu/primitives.py:3570** - # TODO(cperivol): Let the user set the effects.
-- [ ] **jax/_src/pallas/mosaic_gpu/primitives.py:4877** - # TODO(apaszke): Narrow the scope from .sys to .gpu when the semaphore is local.
-- [ ] **jax/_src/pallas/mosaic_gpu/primitives.py:4961** - # TODO(b/415721295): Check whether this is slower than doing
+- [ ] **jax/_src/pallas/mosaic_gpu/primitives.py:1100** - # TODO: apaszke - Relax this. We can just select the WG leader and
+- [ ] **jax/_src/pallas/mosaic_gpu/primitives.py:1111** - # TODO(justinfu): The arrival counts are wrong if called outside of a
+- [ ] **jax/_src/pallas/mosaic_gpu/primitives.py:2745** - # TODO(justinfu): If under a core_map, the avals for acc/a
+- [ ] **jax/_src/pallas/mosaic_gpu/primitives.py:3352** - # TODO(cjfj): remove when minimum jaxlib version is 0.12.
+- [ ] **jax/_src/pallas/mosaic_gpu/primitives.py:3476** - # TODO(bchetioui): add primitive for commit smem to mosaic_gpu dialect.
+- [ ] **jax/_src/pallas/mosaic_gpu/primitives.py:3686** - # TODO(cperivol): Let the user set the effects.
+- [ ] **jax/_src/pallas/mosaic_gpu/primitives.py:5031** - # TODO(apaszke): Narrow the scope from .sys to .gpu when the semaphore is local.
+- [ ] **jax/_src/pallas/mosaic_gpu/primitives.py:5117** - # TODO(b/415721295): Check whether this is slower than doing
 - [ ] **jax/_src/pallas/mosaic_gpu/torch.py:83** - # TODO(apaszke): Add support for jax.jit, which will call another function
-- [ ] **jax/_src/pallas/mpmd.py:131** - # TODO(mattjj,yashkatariya): if we hide vmapped away mesh axes, use this:
-- [ ] **jax/_src/pallas/mpmd.py:159** - # TODO(slebedev): Handle pinned buffers as in ``pallas_call``.
-- [ ] **jax/_src/pallas/mpmd.py:413** - # TODO(slebedev): Add first class support for ``TransformedRef``s to
-- [ ] **jax/_src/pallas/mpmd.py:909** - # TODO(sharadmv): Use out_paths for debugging info.
-- [ ] **jax/_src/pallas/mpmd.py:927** - # TODO(sharadmv): Use in_paths for debugging info.
-- [ ] **jax/_src/pallas/mpmd.py:935** - # TODO(rdyro): For MPMD with more than one mesh, come up with a better
-- [ ] **jax/_src/pallas/mpmd.py:937** - # TODO(rdyro): Check if we need to have a similar check for in-kernel
-- [ ] **jax/_src/pallas/mpmd.py:941** - # TODO(rdyro): Also check inputs and outputs for core type.
-- [ ] **jax/_src/pallas/mpmd.py:1048** - # TODO(slebedev): The named scope should not be necessary here.
+- [ ] **jax/_src/pallas/mpmd.py:132** - # TODO(mattjj,yashkatariya): if we hide vmapped away mesh axes, use this:
+- [ ] **jax/_src/pallas/mpmd.py:160** - # TODO(slebedev): Handle pinned buffers as in ``pallas_call``.
+- [ ] **jax/_src/pallas/mpmd.py:551** - # TODO(slebedev): Add first class support for ``TransformedRef``s to
+- [ ] **jax/_src/pallas/mpmd.py:1074** - # TODO(sharadmv): Use out_paths for debugging info.
+- [ ] **jax/_src/pallas/mpmd.py:1092** - # TODO(sharadmv): Use in_paths for debugging info.
+- [ ] **jax/_src/pallas/mpmd.py:1100** - # TODO(rdyro): For MPMD with more than one mesh, come up with a better
+- [ ] **jax/_src/pallas/mpmd.py:1102** - # TODO(rdyro): Check if we need to have a similar check for in-kernel
+- [ ] **jax/_src/pallas/mpmd.py:1106** - # TODO(rdyro): Also check inputs and outputs for core type.
+- [ ] **jax/_src/pallas/mpmd.py:1213** - # TODO(slebedev): The named scope should not be necessary here.
 - [ ] **jax/_src/pallas/pallas_call.py:122** - # TODO(mattjj,yashkatariya): if we hide vmapped away mesh axes, use this:
 - [ ] **jax/_src/pallas/pallas_call.py:273** - # TODO consts
 - [ ] **jax/_src/pallas/pallas_call.py:398** - # TODO(cjfj): Change output batching axis instead?
@@ -258,27 +268,29 @@ This mirror contains the complete Pallas kernel-language implementation, includi
 - [ ] **jax/_src/pallas/pallas_call.py:669** - # TODO(sharadmv): explore inferring better output dimensions via a heuristic
 - [ ] **jax/_src/pallas/pallas_call.py:670** - # TODO(sharadmv): explore a long term solution to output dim inference
 - [ ] **jax/_src/pallas/pallas_call.py:764** - # TODO all batching rules should probably be in outer mesh ctx
-- [ ] **jax/_src/pallas/pallas_call.py:988** - # TODO(sharadmv): enable origins for refs
-- [ ] **jax/_src/pallas/pallas_call.py:1219** - # TODO(necula): this canonicalization may be convenient for some usage
-- [ ] **jax/_src/pallas/pallas_call.py:1239** - # TODO(necula): check that input_output_aliases is well-formed: no duplicates, etc.
-- [ ] **jax/_src/pallas/pallas_call.py:1324** - # TODO(jburnim): Clean this up.
-- [ ] **jax/_src/pallas/primitives.py:86** - # TODO(dougalm): figure out how put the grid_env contest on the relevant trace
-- [ ] **jax/_src/pallas/primitives.py:172** - # TODO(sharadmv): pretty print mask and other
-- [ ] **jax/_src/pallas/primitives.py:223** - # TODO(justinfu): Handle semaphores with a custom extended dtype.
-- [ ] **jax/_src/pallas/primitives.py:275** - # TODO(ayx): support strided load/store in interpret mode.
-- [ ] **jax/_src/pallas/primitives.py:398** - # TODO(ayx): support strided load/store in interpret mode.
-- [ ] **jax/_src/pallas/primitives.py:641** - # TODO(apaszke): This can be deleted once we make transforms in Mosaic GPU
-- [ ] **jax/_src/pallas/triton/lowering.py:1420** - # TODO(slebedev): Consider allowing customizing nan behavior.
-- [ ] **jax/_src/pallas/triton/lowering.py:1424** - # TODO(slebedev): Triton promotes bfloat16 to float32 and back here.
-- [ ] **jax/_src/pallas/triton/lowering.py:1438** - # TODO(slebedev): Consider allowing customizing nan behavior.
-- [ ] **jax/_src/pallas/triton/lowering.py:1442** - # TODO(slebedev): Triton promotes bfloat16 to float32 and back here.
-- [ ] **jax/_src/pallas/triton/lowering.py:1654** - # TODO(slebedev): Check the CUDA version and raise conditionally.
-- [ ] **jax/_src/pallas/triton/lowering.py:1869** - # TODO(cjfj): Add support for larger powers of 2.
-- [ ] **jax/_src/pallas/triton/lowering.py:2517** - # TODO(bjp): Get rid of the double negation.
-- [ ] **jax/_src/pallas/triton/lowering.py:2803** - # TODO(slebedev): Use `pallas_utils.pattern_match_while_to_fori_loop`.
-- [ ] **jax/_src/pallas/triton/lowering.py:2880** - # TODO(bjp): Switch to scf.index_switch once exposed in triton.cc
-- [ ] **jax/_src/pallas/triton/lowering.py:2891** - # TODO(bjp): Instead of linear nest of 'if's, partition into halves.
-- [ ] **jax/_src/pallas/triton/lowering.py:2953** - # TODO(petebu) Handle case where src and dst types have different bitwidths
+- [ ] **jax/_src/pallas/pallas_call.py:1007** - # TODO(sharadmv): enable origins for refs
+- [ ] **jax/_src/pallas/pallas_call.py:1244** - # TODO(necula): this canonicalization may be convenient for some usage
+- [ ] **jax/_src/pallas/pallas_call.py:1264** - # TODO(necula): check that input_output_aliases is well-formed: no duplicates, etc.
+- [ ] **jax/_src/pallas/pallas_call.py:1349** - # TODO(jburnim): Clean this up.
+- [ ] **jax/_src/pallas/primitives.py:87** - # TODO(dougalm): figure out how put the grid_env contest on the relevant trace
+- [ ] **jax/_src/pallas/primitives.py:173** - # TODO(sharadmv): pretty print mask and other
+- [ ] **jax/_src/pallas/primitives.py:224** - # TODO(justinfu): Handle semaphores with a custom extended dtype.
+- [ ] **jax/_src/pallas/primitives.py:276** - # TODO(ayx): support strided load/store in interpret mode.
+- [ ] **jax/_src/pallas/primitives.py:399** - # TODO(ayx): support strided load/store in interpret mode.
+- [ ] **jax/_src/pallas/primitives.py:642** - # TODO(apaszke): This can be deleted once we make transforms in Mosaic GPU
+- [ ] **jax/_src/pallas/triton/lowering.py:1439** - # TODO(slebedev): Consider allowing customizing nan behavior.
+- [ ] **jax/_src/pallas/triton/lowering.py:1443** - # TODO(slebedev): Triton promotes bfloat16 to float32 and back here.
+- [ ] **jax/_src/pallas/triton/lowering.py:1457** - # TODO(slebedev): Consider allowing customizing nan behavior.
+- [ ] **jax/_src/pallas/triton/lowering.py:1461** - # TODO(slebedev): Triton promotes bfloat16 to float32 and back here.
+- [ ] **jax/_src/pallas/triton/lowering.py:1673** - # TODO(slebedev): Check the CUDA version and raise conditionally.
+- [ ] **jax/_src/pallas/triton/lowering.py:1888** - # TODO(cjfj): Add support for larger powers of 2.
+- [ ] **jax/_src/pallas/triton/lowering.py:2137** - # TODO(suvorovv): Remove this fallback once jax oss has been updated.
+- [ ] **jax/_src/pallas/triton/lowering.py:2354** - # TODO(suvorovv): Remove this fallback once jax oss has been updated.
+- [ ] **jax/_src/pallas/triton/lowering.py:2628** - # TODO(bjp): Get rid of the double negation.
+- [ ] **jax/_src/pallas/triton/lowering.py:2914** - # TODO(slebedev): Use `pallas_utils.pattern_match_while_to_fori_loop`.
+- [ ] **jax/_src/pallas/triton/lowering.py:2991** - # TODO(bjp): Switch to scf.index_switch once exposed in triton.cc
+- [ ] **jax/_src/pallas/triton/lowering.py:3002** - # TODO(bjp): Instead of linear nest of 'if's, partition into halves.
+- [ ] **jax/_src/pallas/triton/lowering.py:3064** - # TODO(petebu) Handle case where src and dst types have different bitwidths
 
 ## License
 
