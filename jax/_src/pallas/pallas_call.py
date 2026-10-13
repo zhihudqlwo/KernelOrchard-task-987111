@@ -722,7 +722,7 @@ def _pallas_call_batching_rule(
 
   # Avoid scaling the cost estimate by the batch size if the batch size is a
   # dynamic shape (DimExpr).
-  # https://docs.jax.dev/en/latest/export/shape_poly.html#computing-with-dimension-variables
+  # https://docs.jax.dev/en/latest/501/shape-polymorphism.html#computing-with-dimension-variables
   if cost_estimate is not None and not axis_size_is_dynamic:
     batched_cost_estimate = CostEstimate(
         flops=cost_estimate.flops * axis_size,
@@ -775,10 +775,22 @@ batching.fancy_primitive_batchers[pallas_call_p] = _pallas_call_batching_rule
 
 
 def _pallas_call_dce_rule(
-    used_outs: list[bool], eqn: pe.JaxprEqn
+    used_outs: list[bool], live_ins: list[bool], eqn: pe.JaxprEqn
 ) -> tuple[list[bool], pe.JaxprEqn | None]:
-  del used_outs
+  if (not any(used_outs) and
+      not any(live for x, live in zip(eqn.invars, live_ins)
+              if isinstance(x.aval, state.AbstractRef)) and
+      not pe.has_effects(eqn, live_ins) and
+      not _has_side_effects(eqn.params['compiler_params'])):
+    return [False] * len(eqn.invars), None
   return [True] * len(eqn.invars), eqn
+
+def _has_side_effects(compiler_params) -> bool:
+  side_effects = getattr(compiler_params, 'has_side_effects', False)
+  if isinstance(side_effects, bool):
+    return side_effects
+  from jax._src.pallas.mosaic import core as tpu_core  # pyrefly: ignore[missing-import]
+  return side_effects is tpu_core.SideEffectType.SIDE_EFFECTING
 
 pe.dce_rules[pallas_call_p] = _pallas_call_dce_rule
 
@@ -956,7 +968,7 @@ jax_core.custom_typechecks[pallas_call_p] = _pallas_call_typecheck_rule
 
 @state_discharge.register_discharge_rule(pallas_call_p)
 def _pallas_call_state_discharge_rule(
-    ctx,
+    ctx: state_discharge.DischargeContext,
     *args,
     jaxpr: jax_core.Jaxpr,
     input_output_aliases: tuple[tuple[int, int], ...],
@@ -974,6 +986,13 @@ def _pallas_call_state_discharge_rule(
   num_refs = len(jaxpr.constvars)
   ref_avals, rest_in_avals = split_list(ctx.in_avals, [num_refs])
   assert all(isinstance(ref_aval, state.AbstractRef) for ref_aval in ref_avals)
+  ref_avals = cast(list[state.AbstractRef], ref_avals)
+  for ref_aval in ref_avals:
+    if not state_discharge.is_neutral_memory_space(ref_aval.memory_space):
+      raise NotImplementedError(
+          "pallas_call does not support closing over Refs in memory space "
+          f"{ref_aval.memory_space}. Use pl.kernel instead."
+      )
   ref_avals = [
       state.AbstractRef(
           ref_aval.inner_aval, pallas_core.MemorySpace.ANY
@@ -1076,6 +1095,12 @@ def _pallas_call_state_discharge_rule(
       name=name,
   )
   refs_out, rest = split_list(out_flat, [num_refs])
+  # constrain aliased outputs
+  for i, o in input_output_aliases:
+    in_aval = rest_in_avals[i]
+    if isinstance(in_aval, state.AbstractRef):
+      ms = getattr(in_aval, 'memory_space', None)
+      rest[o] = state_discharge.constrain(rest[o], ms, ctx.strip_memory_space)
   updated_vals_in = refs_out + [None] * len(rest_in_avals)
   return updated_vals_in, rest
 

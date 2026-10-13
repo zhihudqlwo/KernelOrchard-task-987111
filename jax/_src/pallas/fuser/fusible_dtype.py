@@ -57,7 +57,7 @@ pack_dtype_p = core.Primitive("pack_dtype")
 def pack_dtype_abstract_eval(*xs, dtype):
   if dtypes.issubdtype(dtype, FusibleElementDType):
     return dtype.abstract_pack(*xs)
-  raise ValueError("Attempted to pack non-fusion dtype: {dtype}")
+  raise ValueError(f"Attempted to pack non-fusion dtype: {dtype}")
 
 
 def pack(*xs, dtype):
@@ -72,9 +72,7 @@ unpack_dtype_p.multiple_results = True
 def unpack_dtype_abstract_eval(x):
   if dtypes.issubdtype(x.dtype, FusibleElementDType):
     return x.dtype.abstract_unpack(x)
-  elif isinstance(x.dtype, state.AbstractRef):
-    raise NotImplementedError()
-  raise ValueError("Attempted to unpack non-fusion dtype: {dtype}")
+  raise ValueError(f"Attempted to unpack non-fusion dtype: {x.dtype}")
 
 
 def unpack(x):
@@ -92,9 +90,16 @@ class FusibleTyRules:
 class FusionDType(dtypes.ExtendedDType, util.StrictABC):
   """Base class for fusible extended dtypes."""
 
-  _op_registry = {}
+  # Per-subclass registry.
+  _op_registry: dict[core.Primitive, Callable[..., Any]] = {}
+
   _rules = FusibleTyRules
   type = FusibleElementDType
+
+  def __init_subclass__(cls, **kwargs):
+    super().__init_subclass__(**kwargs)
+
+    cls._op_registry = {}
 
   @abc.abstractmethod
   def abstract_unpack(self, x) -> Sequence[Any]:
@@ -108,6 +113,7 @@ class FusionDType(dtypes.ExtendedDType, util.StrictABC):
   def register_op(cls, primitive):
     def _register_fn(fn):
       cls._op_registry[primitive] = fn
+      return fn
 
     return _register_fn
 
@@ -226,6 +232,11 @@ def physicalize_jaxpr(jaxpr: core.Jaxpr) -> core.Jaxpr:
 class Context:
   avals_in: Sequence[Any]
   avals_out: Sequence[Any]
+  physicalize_closed_jaxpr: Callable[[core.Jaxpr], core.Jaxpr] = (
+      physicalize_closed_jaxpr
+  )
+  physicalize_aval: Callable[[Any], Any] = _physical_aval
+  physicalize: Callable = physicalize
 
 
 def physicalize_interp(
@@ -363,9 +374,9 @@ def _physicalize_transform(f, *args):
 
 @lu.transformation2
 def _physicalize_transform_bwd(f, const_avals, *args):
-  return [custom_derivatives.Zero(a) for a in const_avals] + list(
-      physicalize(f)(*args)
-  )
+  # Pad the cotangents, not the logs `f` returns alongside them.
+  cts, logs = physicalize(f)(*args)
+  return [custom_derivatives.Zero(a) for a in const_avals] + list(cts), logs
 
 
 def _custom_vjp_call_physicalize_rule(
@@ -582,3 +593,12 @@ def _call_hi_primitive_physicalize_rule(ctx, *args, _prim, **params):
 _physicalize_rules[hijax.call_hi_primitive_p] = (
     _call_hi_primitive_physicalize_rule
 )
+
+
+def _eval_jaxpr_rule(ctx: Context, *args, call_jaxpr, **params):
+  _assert_no_fusion_types(ctx.avals_out)
+  new_call_jaxpr = physicalize_closed_jaxpr(call_jaxpr)
+  return core.eval_jaxpr_p.bind(*args, call_jaxpr=new_call_jaxpr, **params)
+
+
+_physicalize_rules[core.eval_jaxpr_p] = _eval_jaxpr_rule
